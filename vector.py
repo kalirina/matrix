@@ -14,14 +14,21 @@ class vector():
 		print(self.data)
 
 	# ex00
-	def add(self,vec2):
-		self.data = [a + b for a, b in zip(self.data, vec2.data)]
+	def add(self,v):
+		self.data = [a + b for a, b in zip(self.data, v.data)]
 
-	def sub(self,vec2):
-		self.data = [a - b for a, b in zip(self.data, vec2.data)]
+	def sub(self,v):
+		self.data = [a - b for a, b in zip(self.data, v.data)]
 
 	def scl(self,a):
 		self.data = [v * a for v in self.data]
+
+	# ex01
+	def linear_combination(u,coefs):
+		res = 0
+		for v in u:
+
+		[el * coef for v in]
 
 
 v = vector([2,4,23,5])
