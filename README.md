@@ -11,9 +11,8 @@ The official project subject can be found here:
 
 This library covers the following linear algebra concepts:
 
-* Vector operations
-* Matrix operations
-* Linear combinations
+* Vector and Matrix operations (addition, subtraction, scaling)
+* Linear combination
 * Linear interpolation
 * Dot product
 * Norms
