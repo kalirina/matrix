@@ -52,3 +52,19 @@ def angle_cos(u:Vector[K], v:Vector[K]) -> K:
     if not isinstance(u.data[0], type(v.data[0])):
         raise TypeError("Vectors not of same type")
     return (u.dot(v)) / (u.norm() * v.norm())
+
+# ex06
+def cross_product(u:Vector[K], v:Vector[K]) -> Vector[K]:
+    if not isinstance(u, Vector) or not isinstance(v, Vector):
+        raise TypeError("Argument is not of Vector type")
+    if u.size() != v.size():
+        raise ValueError("Vectors not of same size")
+    if u.size() != 3:
+        raise ValueError("Vectors size shoud be 3")
+    if not isinstance(u.data[0], type(v.data[0])):
+        raise TypeError("Vectors not of same type")
+    return Vector([
+        u.data[1] * v.data[2] - u.data[2] * v.data[1],
+        u.data[2] * v.data[0] - u.data[0] * v.data[2],
+        u.data[0] * v.data[1] - u.data[1] * v.data[0]
+    ])
