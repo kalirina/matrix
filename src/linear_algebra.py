@@ -41,3 +41,14 @@ def lerp(u:V, v:V, t:K) -> V:
         return u * (1 - t) + t * v
     raise TypeError("Unsupported type for lerp")
 
+# ex05
+def angle_cos(u:Vector[K], v:Vector[K]) -> K:
+    if not isinstance(u, Vector) or not isinstance(v, Vector):
+        raise TypeError("Argument is not of Vector type")
+    if u.size() != v.size():
+        raise ValueError("Vectors not of same size")
+    if all(value== 0 for value in u.data) or all(value == 0 for value in v.data):
+        raise ValueError("Argument is zero")
+    if not isinstance(u.data[0], type(v.data[0])):
+        raise TypeError("Vectors not of same type")
+    return (u.dot(v)) / (u.norm() * v.norm())
