@@ -1,5 +1,5 @@
-from vector import Vector
-from matrix import Matrix
+from src.vector import Vector
+from src.matrix import Matrix
 
 def test(name, fn):
     try:

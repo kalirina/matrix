@@ -1,5 +1,5 @@
 from typing import TypeVar, Generic, List
-from vector import Vector
+from src.vector import Vector
 
 K = TypeVar('K',int,float)
 

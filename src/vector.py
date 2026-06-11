@@ -8,7 +8,7 @@ class Vector(Generic[K]):
 			raise ValueError("Empty list in Vector initialisation")
 		for el in data:
 			if not isinstance(el,type(data[0])):
-				raise ValueError("Elements in argument are not of same type")
+				raise TypeError("Elements in argument are not of same type")
 		self.data:List[K] = data
 
 	def size(self):
@@ -36,9 +36,16 @@ class Vector(Generic[K]):
 		self.data = [v * a for v in self.data]
 
 # ex01
-def linear_combination(u:Vector[K],coefs) -> Vector[K]:
-		res = 0
-		for v in u:
-			pass
-
+def linear_combination(u:List[Vector[K]],coefs:List[K]) -> 'Vector[K]':
+	if len(u) == 0 or len(coefs) == 0:
+		raise ValueError("Empty argument list")
+	if len(u) != len(coefs):
+		raise ValueError("Arguments not of same size")
+	if not all(vector.size() == u[0].size() for vector in u):
+		raise ValueError("Vectors not of same size")
+	result:List[K] = [0 for _ in range(u[0].size())]
+	for i in range(len(coefs)):
+		for j in range(u[0].size()):
+			result[j] += u[i].data[j] * coefs[i]
+	return Vector(result)
 
