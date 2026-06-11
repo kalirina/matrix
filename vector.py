@@ -1,11 +1,15 @@
-class vector():
-	def __init__(self,data):
-		if len(data) is 0:
+from typing import TypeVar, Generic, List
+
+K = TypeVar('K',int,float)
+
+class Vector(Generic[K]):
+	def __init__(self,data:List[K]):
+		if len(data) == 0:
 			raise ValueError("Empty list in Vector initialisation")
 		for el in data:
 			if not isinstance(el,type(data[0])):
 				raise ValueError("Elements in argument are not of same type")
-		self.data = data
+		self.data:List[K] = data
 
 	def size(self):
 		return len(self.data)
@@ -14,27 +18,27 @@ class vector():
 		print(self.data)
 
 	# ex00
-	def add(self,v):
+	def add(self,v:'Vector[K]'):
+		if self.size() != v.size():
+			raise TypeError("Vectors not of same size")
+		if not isinstance(self.data[0], type(v.data[0])):
+			raise TypeError("Vectors not of same type")
 		self.data = [a + b for a, b in zip(self.data, v.data)]
 
-	def sub(self,v):
+	def sub(self,v:'Vector[K]'):
+		if self.size() != v.size():
+			raise TypeError("Vectors not of same size")
+		if not isinstance(self.data[0], type(v.data[0])):
+			raise TypeError("Vectors not of same type")
 		self.data = [a - b for a, b in zip(self.data, v.data)]
 
-	def scl(self,a):
+	def scl(self,a:K):
 		self.data = [v * a for v in self.data]
 
-	# ex01
-	def linear_combination(u,coefs):
+# ex01
+def linear_combination(u:Vector[K],coefs) -> Vector[K]:
 		res = 0
 		for v in u:
+			pass
 
-		[el * coef for v in]
 
-
-v = vector([2,4,23,5])
-v1 = vector([254,47,23,5])
-
-v1.sub(v)
-v1.print()
-
-v = vector()
