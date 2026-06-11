@@ -1,4 +1,5 @@
 from typing import TypeVar, Generic, List
+from vector import Vector
 
 K = TypeVar('K',int,float)
 
@@ -59,3 +60,14 @@ class Matrix(Generic[K]):
             for c in range(self.cols):
                 self.data[r][c] *= a
 
+    # ex07
+    def mul_vec(self, vec:'Vector[K]') -> 'Vector[K]':
+        pass
+
+    def mul_mat(self, mat:'Matrix[K]') -> 'Matrix[K]':
+        if self.rows != mat.rows or self.cols != mat.cols:
+            raise TypeError("Matrices not of same size")
+        res = [[ 0 for c in self.cols] for r in self.rows]
+        for r in range(self.rows):
+            for c in range(self.cols):
+                res[r][c] = 
