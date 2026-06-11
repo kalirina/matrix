@@ -45,3 +45,21 @@ class Vector(Generic[K]):
         for i in range(self.size()):
             res += self.data[i] * v.data[i]
         return res
+
+    # ex04
+    def norm_1(self) -> K:
+        res:K = 0
+        for el in self.data:
+            res += -el if el < 0 else el
+        return res
+
+    def norm(self) -> K:
+        res:K = 0
+        for el in self.data:
+            res += pow(el, 2)
+        res = pow(res, 0.5)
+        return res
+
+    def norm_inf(self) -> K:
+        res:List[K] = [-el if el < 0 else el for el in self.data]
+        return max(res)

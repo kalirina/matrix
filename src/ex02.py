@@ -1,17 +1,11 @@
 from vector import Vector
 from matrix import Matrix
 from linear_algebra import lerp
+from ex00 import test
 
-def test(name, fn):
-    try:
-        print(f"\n--- {name} ---")
-        fn()
-    except Exception as e:
-        print(f"Error: {e}")
 
 def main():
     # scalar
-
     test("Lerp scalar basic", lambda: print(lerp(0.0, 1.0, 0.0)))
     test("Lerp scalar mid", lambda: print(lerp(0.0, 1.0, 0.5)))
     test("Lerp scalar end", lambda: print(lerp(0.0, 1.0, 1.0)))
@@ -22,7 +16,6 @@ def main():
     test("Lerp scalar extrapolate high", lambda: print(lerp(0.0, 1.0, 2.0)))
 
     # vectors
-
     test("Lerp vector 2D", lambda: (
         (v1 := Vector([2.0, 1.0])),
         (v2 := Vector([4.0, 2.0])),
@@ -44,7 +37,6 @@ def main():
     ))
 
     # matrices
-
     test("Lerp matrix 2x2", lambda: (
         (m1 := Matrix([[2.0, 1.0], [3.0, 4.0]])),
         (m2 := Matrix([[20.0, 10.0], [30.0, 40.0]])),
