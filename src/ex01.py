@@ -1,4 +1,5 @@
-from vector import Vector, linear_combination
+from vector import Vector
+from linear_algebra import linear_combination
 
 
 def test(name, fn):

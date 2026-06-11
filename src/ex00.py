@@ -1,5 +1,5 @@
-from src.vector import Vector
-from src.matrix import Matrix
+from vector import Vector
+from matrix import Matrix
 
 def test(name, fn):
     try:
@@ -10,7 +10,7 @@ def test(name, fn):
 
 def main():
 
-    # ===== VECTORS =====
+    # vectors
 
     test("Vector add", lambda: (
         (v1 := Vector([1, 2, 3])),
@@ -44,7 +44,7 @@ def main():
         v1.add(Vector([1.0, 2.0, 3.0]))
     ))
 
-    # ===== MATRICES =====
+    # matrices
 
     test("Matrix add", lambda: (
         (m1 := Matrix([[1, 2], [3, 4]])),

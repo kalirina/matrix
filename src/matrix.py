@@ -1,5 +1,4 @@
 from typing import TypeVar, Generic, List
-from src.vector import Vector
 
 K = TypeVar('K',int,float)
 
@@ -39,18 +38,18 @@ class Matrix(Generic[K]):
     # ex00
     def add(self, v:'Matrix[K]'):
         if self.rows != v.rows or self.cols != v.cols:
-            raise TypeError("Matrixes not of same size")
+            raise TypeError("Matrices not of same size")
         if type(self.data[0][0]) != type(v.data[0][0]):
-            raise TypeError("Matrixes not of same type")
+            raise TypeError("Matrices not of same type")
         for r in range(self.rows):
             for c in range(self.cols):
                 self.data[r][c] += v.data[r][c]
 
     def sub(self, v:'Matrix[K]'):
         if self.rows != v.rows or self.cols != v.cols:
-            raise TypeError("Matrixes not of same size")
+            raise TypeError("Matrices not of same size")
         if not isinstance(self.data[0], type(v.data[0])):
-            raise TypeError("Matrixes not of same type")
+            raise TypeError("Matrices not of same type")
         for r in range(self.rows):
             for c in range(self.cols):
                 self.data[r][c] -= v.data[r][c]

@@ -3,49 +3,34 @@ from typing import TypeVar, Generic, List
 K = TypeVar('K',int,float)
 
 class Vector(Generic[K]):
-	def __init__(self,data:List[K]):
-		if len(data) == 0:
-			raise ValueError("Empty list in Vector initialisation")
-		for el in data:
-			if not isinstance(el,type(data[0])):
-				raise TypeError("Elements in argument are not of same type")
-		self.data:List[K] = data
+    def __init__(self,data:List[K]):
+        if len(data) == 0:
+            raise ValueError("Empty list in Vector initialisation")
+        for el in data:
+            if not isinstance(el,type(data[0])):
+                raise TypeError("Elements in argument are not of same type")
+        self.data:List[K] = data
 
-	def size(self):
-		return len(self.data)
+    def size(self):
+        return len(self.data)
 
-	def print(self):
-		print(self.data)
+    def print(self):
+        print(self.data)
 
-	# ex00
-	def add(self,v:'Vector[K]'):
-		if self.size() != v.size():
-			raise TypeError("Vectors not of same size")
-		if not isinstance(self.data[0], type(v.data[0])):
-			raise TypeError("Vectors not of same type")
-		self.data = [a + b for a, b in zip(self.data, v.data)]
+    # ex00
+    def add(self,v:'Vector[K]'):
+        if self.size() != v.size():
+            raise TypeError("Vectors not of same size")
+        if not isinstance(self.data[0], type(v.data[0])):
+            raise TypeError("Vectors not of same type")
+        self.data = [a + b for a, b in zip(self.data, v.data)]
 
-	def sub(self,v:'Vector[K]'):
-		if self.size() != v.size():
-			raise TypeError("Vectors not of same size")
-		if not isinstance(self.data[0], type(v.data[0])):
-			raise TypeError("Vectors not of same type")
-		self.data = [a - b for a, b in zip(self.data, v.data)]
+    def sub(self,v:'Vector[K]'):
+        if self.size() != v.size():
+            raise TypeError("Vectors not of same size")
+        if not isinstance(self.data[0], type(v.data[0])):
+            raise TypeError("Vectors not of same type")
+        self.data = [a - b for a, b in zip(self.data, v.data)]
 
-	def scl(self,a:K):
-		self.data = [v * a for v in self.data]
-
-# ex01
-def linear_combination(u:List[Vector[K]],coefs:List[K]) -> 'Vector[K]':
-	if len(u) == 0 or len(coefs) == 0:
-		raise ValueError("Empty argument list")
-	if len(u) != len(coefs):
-		raise ValueError("Arguments not of same size")
-	if not all(vector.size() == u[0].size() for vector in u):
-		raise ValueError("Vectors not of same size")
-	result:List[K] = [0 for _ in range(u[0].size())]
-	for i in range(len(coefs)):
-		for j in range(u[0].size()):
-			result[j] += u[i].data[j] * coefs[i]
-	return Vector(result)
-
+    def scl(self,a:K):
+        self.data = [v * a for v in self.data]

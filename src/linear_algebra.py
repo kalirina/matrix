@@ -1,0 +1,43 @@
+from typing import TypeVar, List
+from vector import Vector
+from matrix import Matrix
+
+K = TypeVar('K', int, float)
+V = TypeVar('V', int, float, 'Vector', 'Matrix')
+
+# ex01
+def linear_combination(u:List[Vector[K]],coefs:List[K]) -> 'Vector[K]':
+    if len(u) == 0 or len(coefs) == 0:
+        raise ValueError("Empty argument list")
+    if len(u) != len(coefs):
+        raise ValueError("Arguments not of same size")
+    if not all(vector.size() == u[0].size() for vector in u):
+        raise ValueError("Vectors not of same size")
+    result:List[K] = [0 for _ in range(u[0].size())]
+    for i in range(len(coefs)):
+        for j in range(u[0].size()):
+            result[j] += u[i].data[j] * coefs[i]
+    return Vector(result)
+
+# ex02
+def lerp(u:V, v:V, t:K) -> V:
+    if type(u) != type(v):
+        raise TypeError("Elements not of same size")
+    if not(isinstance(t, (int, float))) or t > 1 or t < 0:
+        raise ValueError("Wrong scalar")
+    if isinstance(u, Vector):
+        if u.size() != v.size():
+            raise ValueError("Vectors not of same size")
+        res = [a * (1 - t) + b * t for a, b in zip(u.data, v.data)]
+        return Vector(res)
+    elif isinstance(u, Matrix):
+        if u.rows != v.rows or u.cols != v.cols:
+            raise ValueError("Matrices not of same size")
+        res = [ [ u.data[r][c] * (1 - t) + v.data[r][c] * t
+                for c in range(u.cols) ]
+                    for r in range(u.rows)]
+        return Matrix(res)
+    elif isinstance(u, (int, float)):
+        return u * (1 - t) + t * v
+    raise TypeError("Unsupported type for lerp")
+
