@@ -92,3 +92,11 @@ class Matrix(Generic[K]):
         for r in range(self.rows):
             trace += self.data[r][r]
         return trace
+
+    # ex09
+    def transpose(self) -> 'Matrix[K]':
+        res:List[List[K]] = [[ 0 for _ in range(self.rows)] for _ in range(self.cols)]
+        for r in range(self.rows):
+            for c in range(self.cols):
+                res[c][r] = self.data[r][c]
+        return Matrix(res)
