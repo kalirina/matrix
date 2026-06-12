@@ -142,3 +142,26 @@ class Matrix(Generic[K]):
                     factor = data[i][c]
                     sub_scaled_row(i, r, factor)
         return Matrix(data)
+
+    #ex11
+    def determinant(self):
+        if not self.square():
+            raise ValueError("Matrix must be square")
+        if self.rows > 4:
+            raise ValueError("Maximum matrix size is 4")
+        if self.rows == 1:
+            return self.data[0][0]
+        if self.rows == 2:
+            return self.data[0][0] * self.data[1][1] - self.data[0][1] * self.data[1][0]
+        det:K = 0
+        for c in range(self.cols):
+            minor = []
+            for r in range(1, self.rows):
+                row = []
+                for j in range(self.cols):
+                    if j != c:
+                        row.append(self.data[r][j])
+                minor.append(row)
+            sign = 1 if c % 2 == 0 else -1
+            det += sign * self.data[0][c] * Matrix(minor).determinant()
+        return det
