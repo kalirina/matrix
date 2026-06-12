@@ -83,3 +83,12 @@ class Matrix(Generic[K]):
                      tmp += self.data[r][k] * mat.data[k][c]
                 res[r][c] = tmp
         return Matrix(res)
+
+    # ex08
+    def trace(self) -> K:
+        if not self.square():
+            raise ValueError("Matrix must be square")
+        trace:K = 0
+        for r in range(self.rows):
+            trace += self.data[r][r]
+        return trace
