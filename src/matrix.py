@@ -21,7 +21,7 @@ class Matrix(Generic[K]):
 
     def print(self):
         for row in self.data:
-            print(row)
+            print([0.0 if abs(x) < 1e-12 else x for x in row])
 
     def shape(self):
         self.rows = 0
@@ -100,3 +100,45 @@ class Matrix(Generic[K]):
             for c in range(self.cols):
                 res[c][r] = self.data[r][c]
         return Matrix(res)
+
+    # ex10
+    def row_echelon(self) -> 'Matrix[K]':
+        data = [row[:] for row in self.data]
+        def swap_rows(i, j):
+            data[i], data[j] = data[j], data[i]
+        def scale_row(i, a):
+            for c in range(self.cols):
+                data[i][c] *= a
+        def sub_scaled_row(dest, sour, a):
+            for c in range(self.cols):
+                data[dest][c] -= data[sour][c] * a
+        p_r = 0
+        pivots = []
+        for p_c in range(self.cols):
+            # find pivot column in row r
+            pivot = None
+            for r in range(p_r, self.rows):
+                if data[r][p_c] != 0:
+                    pivot = r
+                    break
+            if pivot is None:
+                continue
+            # put in place and turn to 1 pivot
+            swap_rows(p_r, pivot)
+            scale_row(p_r, 1 / data[p_r][p_c])
+            # eliminate below
+            for r in range(p_r + 1, self.rows):
+                a = data[r][p_c]
+                if a != 0:
+                    sub_scaled_row(r, p_r, a)
+            pivots.append((p_r, p_c))
+            p_r += 1
+            if p_r == self.rows:
+                break
+        # eliminate above
+        for r, c in reversed(pivots):
+            for i in range(r - 1, -1, -1):
+                if data[i][c] != 0:
+                    factor = data[i][c]
+                    sub_scaled_row(i, r, factor)
+        return Matrix(data)
