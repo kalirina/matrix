@@ -3,10 +3,8 @@ from ex00 import test
 
 
 def main():
-
     # subject examples
-
-    test("Rank identity 3x3", lambda: print(
+    test("Subject Rank identity 3x3", lambda: print(
         Matrix([
             [1.0, 0.0, 0.0],
             [0.0, 1.0, 0.0],
@@ -15,7 +13,7 @@ def main():
     ))
     # expected: 3
 
-    test("Rank dependent rows 3x4", lambda: print(
+    test("Subject Rank dependent rows 3x4", lambda: print(
         Matrix([
             [1.0, 2.0, 0.0, 0.0],
             [2.0, 4.0, 0.0, 0.0],
@@ -24,7 +22,7 @@ def main():
     ))
     # expected: 2
 
-    test("Rank subject 4x3", lambda: print(
+    test("Subject Rank subject 4x3", lambda: print(
         Matrix([
             [8.0, 5.0, -2.0],
             [4.0, 7.0, 20.0],
