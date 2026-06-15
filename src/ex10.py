@@ -5,7 +5,7 @@ from ex00 import test
 def main():
 
     # identity matrix
-    test("Row echelon identity 3x3", lambda: (
+    test("Subject Row echelon identity 3x3", lambda: (
         Matrix([
             [1.0, 0.0, 0.0],
             [0.0, 1.0, 0.0],
@@ -14,7 +14,7 @@ def main():
     ))
 
     # 2x2 full rank
-    test("Row echelon 2x2 full rank", lambda: (
+    test("Subject Row echelon 2x2 full rank", lambda: (
         Matrix([
             [1.0, 2.0],
             [3.0, 4.0]
@@ -22,7 +22,7 @@ def main():
     ))
 
     # dependent rows
-    test("Row echelon dependent rows", lambda: (
+    test("Subject Row echelon dependent rows", lambda: (
         Matrix([
             [1.0, 2.0],
             [2.0, 4.0]
@@ -30,7 +30,7 @@ def main():
     ))
 
     # full subject example (3x5 matrix)
-    test("Row echelon 3x5 subject case", lambda: (
+    test("Subject Row echelon 3x5 subject case", lambda: (
         Matrix([
             [8.0, 5.0, -2.0, 4.0, 28.0],
             [4.0, 2.5, 20.0, 4.0, -4.0],
