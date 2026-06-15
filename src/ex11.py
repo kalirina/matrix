@@ -3,9 +3,7 @@ from ex00 import test
 
 
 def main():
-
     # subject examples
-
     test("Determinant 2x2 subject", lambda: print(
         Matrix([
             [1.0, -1.0],
