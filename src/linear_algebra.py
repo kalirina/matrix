@@ -22,7 +22,7 @@ def linear_combination(u:List[Vector[K]],coefs:List[K]) -> 'Vector[K]':
 # ex02
 def lerp(u:V, v:V, t:K) -> V:
     if type(u) != type(v):
-        raise TypeError("Elements not of same size")
+        raise TypeError("Arguments not of same size")
     if not(isinstance(t, (int, float))) or t > 1 or t < 0:
         raise ValueError("Wrong scalar")
     if isinstance(u, Vector):

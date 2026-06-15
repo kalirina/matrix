@@ -69,7 +69,7 @@ def main():
     # edges
 
     test("Vector empty", lambda: Vector([]))
-    
+
     test("Vector mixed types", lambda: Vector([1, 2.0, 3]))
 
     test("Vector size mismatch", lambda: (
