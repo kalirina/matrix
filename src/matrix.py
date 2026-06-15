@@ -217,3 +217,12 @@ class Matrix(Generic[K]):
                     sub_scaled_row(data, i, r, factor)
                     sub_scaled_row(inv, i, r, factor)
         return Matrix(inv)
+
+    # ex13
+    def rank(self):
+        echelon = self.row_echelon()
+        rank = 0
+        for row in echelon.data:
+            if any(el != 0 for el in row):
+                rank += 1
+        return rank
