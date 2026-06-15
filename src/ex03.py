@@ -3,9 +3,24 @@ from ex00 import test
 
 
 def main():
+    # dot (subject examples)
+    test("Dot subject 1", lambda: print(
+        Vector([0.0, 0.0]).dot(Vector([1.0, 1.0]))
+    ))  # 0.0
+
+    test("Dot subject 2", lambda: print(
+        Vector([1.0, 1.0]).dot(Vector([1.0, 1.0]))
+    ))  # 2.0
+
+    test("Dot subject 3", lambda: print(
+        Vector([-1.0, 6.0]).dot(Vector([3.0, 2.0]))
+    ))  # 9.0
+
+    # dot basic
     test("Dot basic 2D", lambda: print(
         Vector([1.0, 2.0]).dot(Vector([3.0, 4.0]))
-    ))  # 1*3 + 2*4 = 11
+    ))  # 11
+
     test("Dot basic 3D", lambda: print(
         Vector([1.0, 2.0, 3.0]).dot(Vector([4.0, 5.0, 6.0]))
     ))  # 32
@@ -14,9 +29,11 @@ def main():
     test("Dot with zero vector", lambda: print(
         Vector([1.0, 2.0, 3.0]).dot(Vector([0.0, 0.0, 0.0]))
     ))  # 0
+
     test("Dot identical vectors", lambda: print(
         Vector([2.0, 3.0, 4.0]).dot(Vector([2.0, 3.0, 4.0]))
     ))  # 29
+
     test("Dot orthogonal vectors", lambda: print(
         Vector([1.0, 0.0]).dot(Vector([0.0, 1.0]))
     ))  # 0
@@ -25,6 +42,7 @@ def main():
     test("Dot size mismatch", lambda: (
         Vector([1.0, 2.0]).dot(Vector([1.0, 2.0, 3.0]))
     ))
+
     test("Dot type mismatch", lambda: (
         Vector([1, 2, 3]).dot(Vector([1.0, 2.0, 3.0]))
     ))
