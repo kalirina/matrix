@@ -3,9 +3,7 @@ from ex00 import test
 
 
 def main():
-
     # subject examples
-
     test("Inverse identity 3x3", lambda: (
         Matrix([
             [1.0, 0.0, 0.0],
