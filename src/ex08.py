@@ -4,33 +4,34 @@ from ex00 import test
 
 def main():
 
-    # trace
+    # trace (subject examples)
+    test("Trace identity 2x2", lambda: print(
+        Matrix([
+            [1.0, 0.0],
+            [0.0, 1.0]
+        ]).trace()
+    ))  # 2
+
+    test("Trace subject 3x3 #1", lambda: print(
+        Matrix([
+            [2.0, -5.0, 0.0],
+            [4.0, 3.0, 7.0],
+            [-2.0, 3.0, 4.0]
+        ]).trace()
+    ))  # 9
+
+    test("Trace subject 3x3 #2", lambda: print(
+        Matrix([
+            [-2.0, -8.0, 4.0],
+            [1.0, -23.0, 4.0],
+            [0.0, 6.0, 4.0]
+        ]).trace()
+    ))  # -21
+
+    # extra
     test("Trace 1x1", lambda: print(
         Matrix([[42.0]]).trace()
     ))  # 42
-
-    test("Trace 2x2", lambda: print(
-        Matrix([
-            [1.0, 2.0],
-            [3.0, 4.0]
-        ]).trace()
-    ))  # 5
-
-    test("Trace 3x3", lambda: print(
-        Matrix([
-            [1.0, 2.0, 3.0],
-            [4.0, 5.0, 6.0],
-            [7.0, 8.0, 9.0]
-        ]).trace()
-    ))  # 15
-
-    test("Trace identity matrix", lambda: print(
-        Matrix([
-            [1.0, 0.0, 0.0],
-            [0.0, 1.0, 0.0],
-            [0.0, 0.0, 1.0]
-        ]).trace()
-    ))  # 3
 
     test("Trace zero matrix", lambda: print(
         Matrix([
@@ -39,14 +40,14 @@ def main():
         ]).trace()
     ))  # 0
 
-    test("Trace with negative values", lambda: print(
+    test("Trace with negatives", lambda: print(
         Matrix([
             [-1.0, 2.0],
             [3.0, -4.0]
         ]).trace()
     ))  # -5
 
-    # edges, errors
+    # errors
     test("Trace non-square matrix", lambda: print(
         Matrix([
             [1.0, 2.0, 3.0],
