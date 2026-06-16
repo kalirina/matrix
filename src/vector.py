@@ -47,11 +47,11 @@ class Vector(Generic[K]):
             res += abs(el)
         return res
 
-    def norm(self) -> K:
-        res:K = self.data[0] * 0
+    def norm(self):
+        res = 0.0
         for el in self.data:
-            res += el * el
-        return res ** 0.5
+            res += abs(el) ** 2
+        return pow(res, 0.5)
 
     def norm_inf(self) -> K:
         res = abs(self.data[0])

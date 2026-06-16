@@ -98,3 +98,13 @@ class Complex:
 
     def __rtruediv__(self, other):
         return Complex(other, 0) / self
+
+def __pow__(self, n):
+    if not isinstance(n, int):
+        raise TypeError("Only integer powers supported")
+    if n == 0:
+        return Complex(1, 0)
+    result = Complex(self.re, self.im)
+    for _ in range(n - 1):
+        result *= self
+    return result

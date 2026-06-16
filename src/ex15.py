@@ -2,7 +2,7 @@ from vector import Vector
 from matrix import Matrix
 from ex00 import test
 from complex import Complex
-from linear_algebra import linear_combination
+from linear_algebra import linear_combination, lerp
 
 
 def main():
@@ -60,7 +60,8 @@ def main():
     ))
 
     print("\n------- EX01 ------")
-    test("Linear combination", lambda: (
+
+    test("Linear combination of vectors", lambda: (
         linear_combination(
             [
             Vector([Complex(1, 1), Complex(0, 0), Complex(0, 0)]),
@@ -71,18 +72,37 @@ def main():
         ).print()
     ))
 
-    # # dot product
-    # test("Dot complex", lambda: print(
-    #     Vector([Complex(1, 1), Complex(2, 2)]).dot(
-    #         Vector([Complex(3, 3), Complex(4, 4)])
-    #     )
-    # ))
+    print("\n------- EX02 ------")
 
+    test("Linear interpolation of matrices", lambda: (
+        (m1 := Matrix([
+            [Complex(1, 1), Complex(2, 1), Complex(3, 1)],
+            [Complex(4, 1), Complex(5, 1), Complex(6, 1)],
+            [Complex(7, 1), Complex(8, 1), Complex(9, 1)]
+        ])),
+        (m2 := Matrix([
+            [9.0, 8.0, 7.0],
+            [6.0, 5.0, 4.0],
+            [3.0, 2.0, 1.0]
+        ])),
+        lerp(m1, m2, 0.5).print()
+    ))
 
-    # # norms (must still work if implemented generically)
-    # test("Norm complex", lambda: print(
-    #     Vector([Complex(3, 0), Complex(4, 0)]).norm()
-    # ))
+    print("\n------- EX03 ------")
+
+    test("Dot product", lambda: print(
+        Vector([Complex(1, 1), Complex(2, 2)]).dot(
+            Vector([Complex(3, 3), Complex(4, 4)])
+        )
+    ))
+
+    print("\n------- EX04 ------")
+
+    test("Norm", lambda: print(
+        Vector([Complex(3, 0), Complex(4, 0)]).norm_1(),
+        Vector([Complex(3, 0), Complex(4, 0)]).norm(),
+        Vector([Complex(3, 0), Complex(4, 0)]).norm_inf()
+    ))
 
 
     # # matrix multiplication
