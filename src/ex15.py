@@ -155,14 +155,14 @@ def main():
         ])).print()
     ))
 
+    print("\n------- EX08 ------")
 
-    # # trace
-    # test("Trace complex", lambda: print(
-    #     Matrix([
-    #         [Complex(1, 1), Complex(0, 0)],
-    #         [Complex(0, 0), Complex(2, 2)]
-    #     ]).trace()
-    # ))
+    test("Trace complex", lambda: print(
+        Matrix([
+            [Complex(1, 1), Complex(0, 0)],
+            [Complex(0, 0), Complex(2, 2)]
+        ]).trace()
+    ))
 
 
     # # determinant

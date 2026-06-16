@@ -95,7 +95,7 @@ class Matrix(Generic[K]):
     def trace(self) -> K:
         if not self.square():
             raise ValueError("Matrix must be square")
-        trace:K = 0
+        trace:K = self.data[0][0] * 0
         for r in range(self.rows):
             trace += self.data[r][r]
         return trace
