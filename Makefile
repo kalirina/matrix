@@ -9,5 +9,6 @@ ex%: $(VENV)/bin/activate
 
 fclean:
 	rm -rf $(VENV)
+	rm -f src/matrix_display/proj
 
 .PHONY: fclean
