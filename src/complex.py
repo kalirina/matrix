@@ -35,3 +35,42 @@ class Complex:
         if not isinstance(other, Complex):
             return False
         return self.re == other.re and self.im == other.im
+
+    def __str__(self):
+        return f"{self.re} + {self.im}i"
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __abs__(self):
+        return (self.re**2 + self.im**2) ** 0.5
+
+    def __iadd__(self, other):
+        self.re += other.re
+        self.im += other.im
+        return self
+
+    def __isub__(self, other):
+        self.re -= other.re
+        self.im -= other.im
+        return self
+
+    def __imul__(self, other):
+        a, b = self.re, self.im
+        c, d = other.re, other.im
+
+        self.re = a * c - b * d
+        self.im = a * d + b * c
+        return self
+
+    def __itruediv__(self, other):
+        a, b = self.re, self.im
+        c, d = other.re, other.im
+
+        denom = c * c + d * d
+        if denom == 0:
+            raise ZeroDivisionError("division by zero")
+
+        self.re = (a * c + b * d) / denom
+        self.im = (b * c - a * d) / denom
+        return self
