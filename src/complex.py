@@ -46,16 +46,26 @@ class Complex:
         return (self.re**2 + self.im**2) ** 0.5
 
     def __iadd__(self, other):
+        if not isinstance(other, Complex):
+            self.re += other
+            return self
         self.re += other.re
         self.im += other.im
         return self
 
     def __isub__(self, other):
+        if not isinstance(other, Complex):
+            self.re -= other
+            return self
         self.re -= other.re
         self.im -= other.im
         return self
 
     def __imul__(self, other):
+        if not isinstance(other, Complex):
+            self.re *= other
+            self.im *= other
+            return self
         a, b = self.re, self.im
         c, d = other.re, other.im
 
@@ -64,6 +74,8 @@ class Complex:
         return self
 
     def __itruediv__(self, other):
+        if not isinstance(other, Complex):
+            other = Complex(other, 0)
         a, b = self.re, self.im
         c, d = other.re, other.im
 
@@ -74,3 +86,15 @@ class Complex:
         self.re = (a * c + b * d) / denom
         self.im = (b * c - a * d) / denom
         return self
+
+    def __rmul__(self, other):
+        return self * other
+
+    def __radd__(self, other):
+        return self + other
+
+    def __rsub__(self, other):
+        return Complex(other, 0) - self
+
+    def __rtruediv__(self, other):
+        return Complex(other, 0) / self

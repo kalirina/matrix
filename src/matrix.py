@@ -1,7 +1,9 @@
 from typing import TypeVar, Generic, List
 from vector import Vector
+from complex import Complex
 
-K = TypeVar('K',int,float)
+
+K = TypeVar('K', int, float, Complex)
 
 class Matrix(Generic[K]):
     def __init__(self,data:List[List[K]]):
@@ -9,6 +11,11 @@ class Matrix(Generic[K]):
             or any(len(row) == 0 for row in data) \
             or any(len(row) != len(data[0]) for row in data):
             raise TypeError("Invaid matrix form")
+        t = type(data[0][0])
+        for row in data:
+            for el in row:
+                if type(el) != t:
+                    raise TypeError("Mixed types in matrix")
         self.data:List[List[K]] = data
         self.shape()
 

@@ -13,7 +13,7 @@ def linear_combination(u:List[Vector[K]],coefs:List[K]) -> 'Vector[K]':
         raise ValueError("Arguments not of same size")
     if not all(vector.size() == u[0].size() for vector in u):
         raise ValueError("Vectors not of same size")
-    result:List[K] = [0 for _ in range(u[0].size())]
+    result:List[K] = [u[0].data[0] * 0 for _ in range(u[0].size())]
     for i in range(len(coefs)):
         for j in range(u[0].size()):
             result[j] += u[i].data[j] * coefs[i]

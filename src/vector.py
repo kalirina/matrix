@@ -7,6 +7,8 @@ class Vector(Generic[K]):
     def __init__(self,data:List[K]):
         if len(data) == 0:
             raise ValueError("Empty list in Vector initialisation")
+        if any(not isinstance(element, type(data[0])) for element in data):
+            raise ValueError("Elements in argument are not of same type")
         self.data:List[K] = data
 
     def size(self):
