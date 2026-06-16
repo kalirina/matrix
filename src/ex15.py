@@ -164,6 +164,17 @@ def main():
         ]).trace()
     ))
 
+    print("\n------- EX09 ------")
+
+    test("Transpose complex 3x3", lambda: (
+        Matrix([
+            [Complex(1, 1), Complex(2, -1), Complex(3, 0)],
+            [Complex(4, 2), Complex(5, 0), Complex(6, -3)],
+            [Complex(7, -1), Complex(8, 1), Complex(9, 2)]
+        ]).transpose().print()
+    ))
+
+    
 
     # # determinant
     # test("Determinant complex", lambda: print(
