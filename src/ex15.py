@@ -136,24 +136,24 @@ def main():
         )
     ))
 
-    # print("\n------- EX06 ------")
+    print("\n------- EX07 ------")
 
-    # test("Matrix mul vec complex", lambda: (
-    #     Matrix([
-    #         [Complex(1, 0), Complex(0, 0)],
-    #         [Complex(0, 0), Complex(1, 0)]
-    #     ]).mul_vec(Vector([Complex(5, 6), Complex(7, 8)])).print()
-    # ))
+    test("Matrix mul vec complex", lambda: (
+        Matrix([
+            [Complex(1, 0), Complex(0, 0)],
+            [Complex(0, 0), Complex(1, 0)]
+        ]).mul_vec(Vector([Complex(5, 6), Complex(7, 8)])).print()
+    ))
 
-    # test("Matrix mul mat complex", lambda: (
-    #     Matrix([
-    #         [Complex(1, 0), Complex(0, 0)],
-    #         [Complex(0, 0), Complex(1, 0)]
-    #     ]).mul_mat(Matrix([
-    #         [Complex(1, 0), Complex(2, 0)],
-    #         [Complex(3, 0), Complex(4, 0)]
-    #     ])).print()
-    # ))
+    test("Matrix mul mat complex", lambda: (
+        Matrix([
+            [Complex(1, 0), Complex(0, 0)],
+            [Complex(0, 0), Complex(1, 0)]
+        ]).mul_mat(Matrix([
+            [Complex(1, 0), Complex(2, 0)],
+            [Complex(3, 0), Complex(4, 0)]
+        ])).print()
+    ))
 
 
     # # trace

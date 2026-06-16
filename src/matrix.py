@@ -71,9 +71,9 @@ class Matrix(Generic[K]):
     def mul_vec(self, vec:'Vector[K]') -> 'Vector[K]':
         if self.cols != vec.size():
             raise ValueError("Matrix and vector of incompatible size")
-        res:List[K] = [0 for _ in range(self.rows)]
+        res:List[K] = [self.data[0][0] * 0 for _ in range(self.rows)]
         for r in range(self.rows):
-            tmp:K = 0
+            tmp:K = self.data[0][0] * 0
             for c in range(self.cols):
                 tmp += self.data[r][c] * vec.data[c]
             res[r] = tmp
@@ -82,10 +82,10 @@ class Matrix(Generic[K]):
     def mul_mat(self, mat:'Matrix[K]') -> 'Matrix[K]':
         if self.cols != mat.rows:
             raise ValueError("Matrices of incompatible size")
-        res:List[List[K]] = [[ 0 for _ in range(mat.cols)] for _ in range(self.rows)]
+        res:List[List[K]] = [[self.data[0][0] * 0 for _ in range(mat.cols)] for _ in range(self.rows)]
         for r in range(self.rows):
             for c in range(mat.cols):
-                tmp: K = 0
+                tmp: K = self.data[0][0] * 0
                 for k in range(self.cols):
                      tmp += self.data[r][k] * mat.data[k][c]
                 res[r][c] = tmp
