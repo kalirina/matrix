@@ -2,7 +2,7 @@ from vector import Vector
 from matrix import Matrix
 from ex00 import test
 from complex import Complex
-from linear_algebra import linear_combination, lerp
+from linear_algebra import linear_combination, lerp, angle_cos
 
 
 def main():
@@ -104,6 +104,23 @@ def main():
         Vector([Complex(3, 0), Complex(4, 0)]).norm_inf()
     ))
 
+    print("\n------- EX05 ------")
+
+    test("Angle cosine complex identical", lambda: print(
+        angle_cos(
+            Vector([Complex(1, 0), Complex(2, 0)]),
+            Vector([Complex(1, 0), Complex(2, 0)])
+        )
+    ))
+
+    test("Angle cosine complex", lambda: print(
+        angle_cos(
+            Vector([Complex(-1, 0), Complex(1, 0)]),
+            Vector([Complex(1, 0), Complex(-1, 0)])
+        )
+    ))
+
+    print("\n------- EX06 ------")
 
     # # matrix multiplication
     # test("Matrix mul vec complex", lambda: (
