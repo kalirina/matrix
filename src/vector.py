@@ -17,6 +17,12 @@ class Vector(Generic[K]):
     def print(self):
         print(self.data)
 
+    def __str__(self):
+        return str(self.data)
+
+    def __repr__(self):
+        return self.__str__()
+
     # ex00
     def add(self, v:'Vector[K]'):
         if self.size() != v.size():

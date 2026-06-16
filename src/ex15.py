@@ -2,7 +2,7 @@ from vector import Vector
 from matrix import Matrix
 from ex00 import test
 from complex import Complex
-from linear_algebra import linear_combination, lerp, angle_cos
+from linear_algebra import linear_combination, lerp, angle_cos, cross_product
 
 
 def main():
@@ -113,16 +113,31 @@ def main():
         )
     ))
 
-    test("Angle cosine complex", lambda: print(
+    test("Angle cosine complex and float/int", lambda: print(
         angle_cos(
             Vector([Complex(-1, 0), Complex(1, 0)]),
-            Vector([Complex(1, 0), Complex(-1, 0)])
+            Vector([1, -1])
         )
     ))
 
     print("\n------- EX06 ------")
 
-    # # matrix multiplication
+    test("Cross product complex", lambda: print(
+        cross_product(
+            Vector([Complex(1, 2), Complex(0, 1), Complex(3, -1)]),
+            Vector([Complex(4, -1), Complex(1, 0), Complex(2, 2)])
+        )
+    ))
+
+    test("Cross product complex and float/int", lambda: print(
+        cross_product(
+            Vector([Complex(1, 2), Complex(0, 1), Complex(3, -1)]),
+            Vector([1.0, 2.0, 3.0])
+        )
+    ))
+
+    # print("\n------- EX06 ------")
+
     # test("Matrix mul vec complex", lambda: (
     #     Matrix([
     #         [Complex(1, 0), Complex(0, 0)],
