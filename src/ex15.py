@@ -174,9 +174,8 @@ def main():
         ]).transpose().print()
     ))
 
-    
+    print("\n------- EX10 ------")
 
-    # # determinant
     # test("Determinant complex", lambda: print(
     #     Matrix([
     #         [Complex(1, 0), Complex(2, 0)],
