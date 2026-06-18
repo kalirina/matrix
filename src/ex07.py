@@ -4,157 +4,130 @@ from ex00 import test
 
 
 def main():
-
     # mul_vec (subject examples)
-
     test("Matrix-vector subject 1", lambda: (
-        (m := Matrix([
+        res := Matrix([
             [1.0, 0.0],
             [0.0, 1.0]
-        ])),
-        (v := Vector([4.0, 2.0])),
-        m.mul_vec(v).print()
+        ]).mul_vec(Vector([4.0, 2.0])),
+        res.print(),
+        print("OK" if res.data == [4.0, 2.0] else "KO")
     ))
-    # [4.0, 2.0]
 
     test("Matrix-vector subject 2", lambda: (
-        (m := Matrix([
+        res := Matrix([
             [2.0, 0.0],
             [0.0, 2.0]
-        ])),
-        (v := Vector([4.0, 2.0])),
-        m.mul_vec(v).print()
+        ]).mul_vec(Vector([4.0, 2.0])),
+        res.print(),
+        print("OK" if res.data == [8.0, 4.0] else "KO")
     ))
-    # [8.0, 4.0]
 
     test("Matrix-vector subject 3", lambda: (
-        (m := Matrix([
+        res := Matrix([
             [2.0, -2.0],
             [-2.0, 2.0]
-        ])),
-        (v := Vector([4.0, 2.0])),
-        m.mul_vec(v).print()
+        ]).mul_vec(Vector([4.0, 2.0])),
+        res.print(),
+        print("OK" if res.data == [4.0, -4.0] else "KO")
     ))
-    # [4.0, -4.0]
 
     # mul_mat (subject examples)
-
     test("Matrix-matrix subject 1", lambda: (
-        (m1 := Matrix([
+        res := Matrix([
+            [1.0, 0.0],
+            [0.0, 1.0]
+        ]).mul_mat(Matrix([
             [1.0, 0.0],
             [0.0, 1.0]
         ])),
-        (m2 := Matrix([
-            [1.0, 0.0],
-            [0.0, 1.0]
-        ])),
-        m1.mul_mat(m2).print()
+        res.print(),
+        print("OK" if res.data == [[1.0, 0.0], [0.0, 1.0]] else "KO")
     ))
-    # [1.0, 0.0]
-    # [0.0, 1.0]
 
     test("Matrix-matrix subject 2", lambda: (
-        (m1 := Matrix([
+        res := Matrix([
             [1.0, 0.0],
             [0.0, 1.0]
-        ])),
-        (m2 := Matrix([
+        ]).mul_mat(Matrix([
             [2.0, 1.0],
             [4.0, 2.0]
         ])),
-        m1.mul_mat(m2).print()
+        res.print(),
+        print("OK" if res.data == [[2.0, 1.0], [4.0, 2.0]] else "KO")
     ))
-    # [2.0, 1.0]
-    # [4.0, 2.0]
 
     test("Matrix-matrix subject 3", lambda: (
-        (m1 := Matrix([
+        res := Matrix([
             [3.0, -5.0],
             [6.0, 8.0]
-        ])),
-        (m2 := Matrix([
+        ]).mul_mat(Matrix([
             [2.0, 1.0],
             [4.0, 2.0]
         ])),
-        m1.mul_mat(m2).print()
+        res.print(),
+        print("OK" if res.data == [[-14.0, -7.0], [44.0, 22.0]] else "KO")
     ))
-    # [-14.0, -7.0]
-    # [44.0, 22.0]
 
     # mul_vec
 
     test("Matrix-vector 2x2", lambda: (
-        (m := Matrix([[1.0, 2.0], [3.0, 4.0]])),
-        (v := Vector([5.0, 6.0])),
-        m.mul_vec(v).print()
+        res := Matrix([[1.0, 2.0], [3.0, 4.0]]).mul_vec(Vector([5.0, 6.0])),
+        res.print(),
+        print("OK" if res.data == [17.0, 39.0] else "KO")
     ))
-    # [17, 39]
 
     test("Matrix-vector identity", lambda: (
-        (m := Matrix([[1.0, 0.0], [0.0, 1.0]])),
-        (v := Vector([42.0, 21.0])),
-        m.mul_vec(v).print()
+        res := Matrix([[1.0, 0.0], [0.0, 1.0]]).mul_vec(Vector([42.0, 21.0])),
+        res.print(),
+        print("OK" if res.data == [42.0, 21.0] else "KO")
     ))
-    # [42, 21]
 
     test("Matrix-vector zero matrix", lambda: (
-        (m := Matrix([[0.0, 0.0], [0.0, 0.0]])),
-        (v := Vector([5.0, 6.0])),
-        m.mul_vec(v).print()
+        res := Matrix([[0.0, 0.0], [0.0, 0.0]]).mul_vec(Vector([5.0, 6.0])),
+        res.print(),
+        print("OK" if res.data == [0.0, 0.0] else "KO")
     ))
-    # [0, 0]
 
     test("Matrix-vector incompatible size", lambda: (
-        (m := Matrix([[1.0, 2.0], [3.0, 4.0]])),
-        (v := Vector([1.0, 2.0, 3.0])),
-        m.mul_vec(v).print()
+        Matrix([[1.0, 2.0], [3.0, 4.0]]).mul_vec(Vector([1.0, 2.0, 3.0])).print()
     ))
 
     # mul_mat
 
     test("Matrix-matrix 2x2", lambda: (
-        (m1 := Matrix([[1.0, 2.0], [3.0, 4.0]])),
-        (m2 := Matrix([[5.0, 6.0], [7.0, 8.0]])),
-        m1.mul_mat(m2).print()
+        res := Matrix([[1.0, 2.0], [3.0, 4.0]]).mul_mat(Matrix([[5.0, 6.0], [7.0, 8.0]])),
+        res.print(),
+        print("OK" if res.data == [[19.0, 22.0], [43.0, 50.0]] else "KO")
     ))
-    # [[19, 22],
-    #  [43, 50]]
 
     test("Matrix-matrix identity", lambda: (
-        (m1 := Matrix([[1.0, 2.0], [3.0, 4.0]])),
-        (m2 := Matrix([[1.0, 0.0], [0.0, 1.0]])),
-        m1.mul_mat(m2).print()
+        res := Matrix([[1.0, 2.0], [3.0, 4.0]]).mul_mat(Matrix([[1.0, 0.0], [0.0, 1.0]])),
+        res.print(),
+        print("OK" if res.data == [[1.0, 2.0], [3.0, 4.0]] else "KO")
     ))
-    # [[1, 2],
-    #  [3, 4]]
 
     test("Matrix-matrix rectangular", lambda: (
-        (m1 := Matrix([
+        res := Matrix([
             [1.0, 2.0, 3.0],
             [4.0, 5.0, 6.0]
-        ])),
-        (m2 := Matrix([
+        ]).mul_mat(Matrix([
             [7.0, 8.0],
             [9.0, 10.0],
             [11.0, 12.0]
         ])),
-        m1.mul_mat(m2).print()
+        res.print(),
+        print("OK" if res.data == [[58.0, 64.0], [139.0, 154.0]] else "KO")
     ))
-    # [[58, 64],
-    #  [139, 154]]
 
     test("Matrix-matrix zero matrix", lambda: (
-        (m1 := Matrix([[1.0, 2.0], [3.0, 4.0]])),
-        (m2 := Matrix([[0.0, 0.0], [0.0, 0.0]])),
-        m1.mul_mat(m2).print()
+        res := Matrix([[1.0, 2.0], [3.0, 4.0]]).mul_mat(Matrix([[0.0, 0.0], [0.0, 0.0]])),
+        res.print(),
+        print("OK" if res.data == [[0.0, 0.0], [0.0, 0.0]] else "KO")
     ))
-    # [[0, 0],
-    #  [0, 0]]
 
     test("Matrix-matrix incompatible size", lambda: (
-        (m1 := Matrix([[1.0, 2.0]])),
-        (m2 := Matrix([[1.0, 2.0]])),
-        m1.mul_mat(m2).print()
+        Matrix([[1.0, 2.0]]).mul_mat(Matrix([[1.0, 2.0]])).print()
     ))
 
 
