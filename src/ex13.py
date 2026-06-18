@@ -4,71 +4,78 @@ from ex00 import test
 
 def main():
     # subject examples
-    test("Subject Rank identity 3x3", lambda: print(
-        Matrix([
+    test("Subject Rank identity 3x3", lambda: (
+        res := Matrix([
             [1.0, 0.0, 0.0],
             [0.0, 1.0, 0.0],
             [0.0, 0.0, 1.0]
-        ]).rank()
+        ]).rank(),
+        print(res),
+        print("OK" if res == 3 else "KO")
     ))
-    # expected: 3
 
-    test("Subject Rank dependent rows 3x4", lambda: print(
-        Matrix([
+    test("Subject Rank dependent rows 3x4", lambda: (
+        res := Matrix([
             [1.0, 2.0, 0.0, 0.0],
             [2.0, 4.0, 0.0, 0.0],
             [-1.0, 2.0, 1.0, 1.0]
-        ]).rank()
+        ]).rank(),
+        print(res),
+        print("OK" if res == 2 else "KO")
     ))
-    # expected: 2
 
-    test("Subject Rank subject 4x3", lambda: print(
-        Matrix([
+    test("Subject Rank subject 4x3", lambda: (
+        res := Matrix([
             [8.0, 5.0, -2.0],
             [4.0, 7.0, 20.0],
             [7.0, 6.0, 1.0],
             [21.0, 18.0, 7.0]
-        ]).rank()
+        ]).rank(),
+        print(res),
+        print("OK" if res == 3 else "KO")
     ))
-    # expected: 3
 
     # edge cases
-
-    test("Rank zero matrix", lambda: print(
-        Matrix([
+    test("Rank zero matrix", lambda: (
+        res := Matrix([
             [0.0, 0.0],
             [0.0, 0.0]
-        ]).rank()
+        ]).rank(),
+        print(res),
+        print("OK" if res == 0 else "KO")
     ))
-    # expected: 0
 
-    test("Rank 1x1 non-zero", lambda: print(
-        Matrix([[42.0]]).rank()
+    test("Rank 1x1 non-zero", lambda: (
+        res := Matrix([[42.0]]).rank(),
+        print(res),
+        print("OK" if res == 1 else "KO")
     ))
-    # expected: 1
 
-    test("Rank 1x1 zero", lambda: print(
-        Matrix([[0.0]]).rank()
+    test("Rank 1x1 zero", lambda: (
+        res := Matrix([[0.0]]).rank(),
+        print(res),
+        print("OK" if res == 0 else "KO")
     ))
-    # expected: 0
 
-    test("Rank rectangular full rank", lambda: print(
-        Matrix([
+    test("Rank rectangular full rank", lambda: (
+        res := Matrix([
             [1.0, 2.0],
             [3.0, 4.0],
             [5.0, 6.0]
-        ]).rank()
+        ]).rank(),
+        print(res),
+        print("OK" if res == 2 else "KO")
     ))
-    # expected: 2
 
-    test("Rank rectangular with dependent rows", lambda: print(
-        Matrix([
+    test("Rank rectangular with dependent rows", lambda: (
+        res := Matrix([
             [1.0, 2.0],
             [2.0, 4.0],
             [3.0, 6.0]
-        ]).rank()
+        ]).rank(),
+        print(res),
+        print("OK" if res == 1 else "KO")
     ))
-    # expected: 1
 
 
 if __name__ == "__main__":
