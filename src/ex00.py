@@ -14,55 +14,54 @@ def main():
         (u := Vector([2.0, 3.0])),
         (v := Vector([5.0, 7.0])),
         u.add(v),
-        u.print()
+        u.print(),
+        print("OK" if u.data == [7.0, 10.0] else "KO")
     ))
-    # expected: [7.0, 10.0]
+
+    test("Vector add (different type)", lambda: (
+        (v1 := Vector([1, 2, 3])),
+        v1.add(Vector([1.0, 2.0, 3.0])),
+        v1.print(),
+        print("OK" if v1.data == [2.0, 4.0, 6.0] else "KO")
+    ))
 
     test("Vector sub (subject)", lambda: (
         (u := Vector([2.0, 3.0])),
         (v := Vector([5.0, 7.0])),
         u.sub(v),
-        u.print()
+        u.print(),
+        print("OK" if u.data == [-3.0, -4.0] else "KO")
     ))
-    # expected: [-3.0, -4.0]
 
     test("Vector scl (subject)", lambda: (
         (u := Vector([2.0, 3.0])),
         u.scl(2.0),
-        u.print()
+        u.print(),
+        print("OK" if u.data == [4.0, 6.0] else "KO")
     ))
-    # expected: [4.0, 6.0]
-
-    # matrix (subject examples)
 
     test("Matrix add (subject)", lambda: (
         (u := Matrix([[1.0, 2.0], [3.0, 4.0]])),
         (v := Matrix([[7.0, 4.0], [-2.0, 2.0]])),
         u.add(v),
-        u.print()
+        u.print(),
+        print("OK" if u.data == [[8.0, 6.0], [1.0, 6.0]] else "KO")
     ))
-    # expected:
-    # [8.0, 6.0]
-    # [1.0, 6.0]
 
     test("Matrix sub (subject)", lambda: (
         (u := Matrix([[1.0, 2.0], [3.0, 4.0]])),
         (v := Matrix([[7.0, 4.0], [-2.0, 2.0]])),
         u.sub(v),
-        u.print()
+        u.print(),
+        print("OK" if u.data == [[-6.0, -2.0], [5.0, 2.0]] else "KO")
     ))
-    # expected:
-    # [-6.0, -2.0]
-    # [5.0, 2.0]
 
     test("Matrix scl (subject)", lambda: (
         (u := Matrix([[1.0, 2.0], [3.0, 4.0]])),
         u.scl(2.0),
-        u.print()
+        u.print(),
+        print("OK" if u.data == [[2.0, 4.0], [6.0, 8.0]] else "KO")
     ))
-    # expected:
-    # [2.0, 4.0]
-    # [6.0, 8.0]
 
     # edges
 
@@ -73,11 +72,6 @@ def main():
     test("Vector size mismatch", lambda: (
         (v1 := Vector([1, 2, 3])),
         v1.add(Vector([1, 2]))
-    ))
-
-    test("Vector type mismatch", lambda: (
-        (v1 := Vector([1, 2, 3])),
-        v1.add(Vector([1.0, 2.0, 3.0]))
     ))
 
     test("Matrix empty", lambda: Matrix([]))
