@@ -5,31 +5,39 @@ from ex00 import test
 
 def main():
     test("Subject example #1", lambda: (
-        linear_combination(
+        res := linear_combination(
             [Vector([1., 0., 0.]), Vector([0., 1., 0.]), Vector([0., 0., 1.])],
             [10., -2., 0.5]
-        ).print()
+        ),
+        res.print(),
+        print("OK" if res.data == [10., -2., 0.5] else "KO")
     ))
 
     test("Subject example #2", lambda: (
-        linear_combination(
+        res := linear_combination(
             [Vector([1., 2., 3.]), Vector([0., 10., -100.])],
             [10., -2.]
-        ).print()
+        ),
+        res.print(),
+        print("OK" if res.data == [10., 0., 230.] else "KO")
     ))
 
     test("Single vector", lambda: (
-        linear_combination(
+        res := linear_combination(
             [Vector([1., 2., 3.])],
             [5.]
-        ).print()
+        ),
+        res.print(),
+        print("OK" if res.data == [5., 10., 15.] else "KO")
     ))
 
     test("Zero coefficients", lambda: (
-        linear_combination(
+        res := linear_combination(
             [Vector([1., 2., 3.]), Vector([4., 5., 6.])],
             [0., 0.]
-        ).print()
+        ),
+        res.print(),
+        print("OK" if res.data == [0., 0., 0.] else "KO")
     ))
 
     test("Empty vectors list", lambda: (
@@ -46,13 +54,14 @@ def main():
             [1.]
         )
     ))
-    
+
     test("Vectors of different sizes", lambda: (
         linear_combination(
             [Vector([1., 2., 3.]), Vector([4., 5.])],
             [1., 2.]
         )
     ))
+
 
 if __name__ == "__main__":
     main()
