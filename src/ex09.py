@@ -6,75 +6,97 @@ def main():
 
     # transpose
     test("Transpose 1x1", lambda: (
-        Matrix([[42.0]]).transpose().print()
+        res := Matrix([[42.0]]).transpose(),
+        res.print(),
+        print("OK" if res.data == [[42.0]] else "KO")
     ))
-    # [[42]]
 
     test("Transpose 2x2", lambda: (
-        Matrix([
+        res := Matrix([
             [1.0, 2.0],
             [3.0, 4.0]
-        ]).transpose().print()
+        ]).transpose(),
+        res.print(),
+        print("OK" if res.data == [[1.0, 3.0], [2.0, 4.0]] else "KO")
     ))
-    # [[1, 3],
-    #  [2, 4]]
 
     test("Transpose 3x3", lambda: (
-        Matrix([
+        res := Matrix([
             [1.0, 2.0, 3.0],
             [4.0, 5.0, 6.0],
             [7.0, 8.0, 9.0]
-        ]).transpose().print()
+        ]).transpose(),
+        res.print(),
+        print("OK" if res.data == [
+            [1.0, 4.0, 7.0],
+            [2.0, 5.0, 8.0],
+            [3.0, 6.0, 9.0]
+        ] else "KO")
     ))
-    # [[1, 4, 7],
-    #  [2, 5, 8],
-    #  [3, 6, 9]]
 
     test("Transpose rectangular 2x3", lambda: (
-        Matrix([
+        res := Matrix([
             [1.0, 2.0, 3.0],
             [4.0, 5.0, 6.0]
-        ]).transpose().print()
+        ]).transpose(),
+        res.print(),
+        print("OK" if res.data == [
+            [1.0, 4.0],
+            [2.0, 5.0],
+            [3.0, 6.0]
+        ] else "KO")
     ))
-    # [[1, 4],
-    #  [2, 5],
-    #  [3, 6]]
 
     test("Transpose rectangular 3x2", lambda: (
-        Matrix([
+        res := Matrix([
             [1.0, 2.0],
             [3.0, 4.0],
             [5.0, 6.0]
-        ]).transpose().print()
+        ]).transpose(),
+        res.print(),
+        print("OK" if res.data == [
+            [1.0, 3.0, 5.0],
+            [2.0, 4.0, 6.0]
+        ] else "KO")
     ))
-    # [[1, 3, 5],
-    #  [2, 4, 6]]
 
     test("Transpose identity matrix", lambda: (
-        Matrix([
+        res := Matrix([
             [1.0, 0.0, 0.0],
             [0.0, 1.0, 0.0],
             [0.0, 0.0, 1.0]
-        ]).transpose().print()
+        ]).transpose(),
+        res.print(),
+        print("OK" if res.data == [
+            [1.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0],
+            [0.0, 0.0, 1.0]
+        ] else "KO")
     ))
-    # unchanged
 
     test("Transpose zero matrix", lambda: (
-        Matrix([
+        res := Matrix([
             [0.0, 0.0],
             [0.0, 0.0]
-        ]).transpose().print()
+        ]).transpose(),
+        res.print(),
+        print("OK" if res.data == [
+            [0.0, 0.0],
+            [0.0, 0.0]
+        ] else "KO")
     ))
-    # unchanged
 
     test("Transpose with negative values", lambda: (
-        Matrix([
+        res := Matrix([
             [-1.0, -2.0],
             [3.0, -4.0]
-        ]).transpose().print()
+        ]).transpose(),
+        res.print(),
+        print("OK" if res.data == [
+            [-1.0, 3.0],
+            [-2.0, -4.0]
+        ] else "KO")
     ))
-    # [[-1, 3],
-    #  [-2, -4]]
 
 
 if __name__ == "__main__":
