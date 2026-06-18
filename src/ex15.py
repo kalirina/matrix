@@ -212,6 +212,16 @@ def main():
         ]).inverse().print()
     ))
 
+    print("\n------- EX13 ------")
+
+    test("Rank complex full", lambda: (
+        print(Matrix([
+            [Complex(1, 1), Complex(0, 0), Complex(2, -1)],
+            [Complex(0, 1), Complex(1, 1), Complex(3, 0)],
+            [Complex(1, 0), Complex(2, 1), Complex(4, -1)]
+        ]).rank())
+    ))
+
 
 if __name__ == "__main__":
     main()

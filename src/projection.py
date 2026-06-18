@@ -13,7 +13,7 @@ def projection(fov:K, ratio:K, near:K, far:K) -> Matrix[K]:
         raise ValueError("far must be greater than near")
     if ratio <= 0:
         raise ValueError("ratio must be positive")
-    proj = [[0 for _ in range(4)] for _ in range(4)]
+    proj = [[0.0 for _ in range(4)] for _ in range(4)]
     f = 1 / tan(fov / 2)
     proj[0][0] = f / ratio
     proj[1][1] = f

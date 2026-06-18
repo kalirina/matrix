@@ -9,9 +9,7 @@ def test(name, fn):
         print(f"Error: {e}")
 
 def main():
-
     # vector (subject examples)
-
     test("Vector add (subject)", lambda: (
         (u := Vector([2.0, 3.0])),
         (v := Vector([5.0, 7.0])),
