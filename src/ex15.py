@@ -155,6 +155,16 @@ def main():
         ])).print()
     ))
 
+    test("Matrix mul mat complex non-trivial", lambda: (
+        Matrix([
+            [Complex(1, 1), Complex(2, -1)],
+            [Complex(0, 1), Complex(1, 0)]
+        ]).mul_mat(Matrix([
+            [Complex(2, 0), Complex(0, 1)],
+            [Complex(1, -1), Complex(3, 0)]
+        ])).print()
+    )) # [3-i, 5-2i],[1+i, 2]
+
     print("\n------- EX08 ------")
 
     test("Trace complex", lambda: print(
@@ -193,13 +203,14 @@ def main():
         ]).determinant()
     ))
 
-    # # inverse
-    # test("Inverse complex", lambda: (
-    #     Matrix([
-    #         [Complex(1, 0), Complex(0, 0)],
-    #         [Complex(0, 0), Complex(1, 0)]
-    #     ]).inverse().print()
-    # ))
+    print("\n------- EX12 ------")
+
+    test("Inverse complex check", lambda: (
+        Matrix([
+            [Complex(1, 1), Complex(2, 0)],
+            [Complex(0, 1), Complex(1, -1)]
+        ]).inverse().print()
+    ))
 
 
 if __name__ == "__main__":

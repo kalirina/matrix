@@ -4,7 +4,7 @@ from ex00 import test
 
 def main():
     # subject examples
-    test("Inverse identity 3x3", lambda: (
+    test("Subject Inverse identity 3x3", lambda: (
         Matrix([
             [1.0, 0.0, 0.0],
             [0.0, 1.0, 0.0],
@@ -16,7 +16,7 @@ def main():
     # [0.0, 1.0, 0.0]
     # [0.0, 0.0, 1.0]
 
-    test("Inverse diagonal 3x3", lambda: (
+    test("Subject Inverse diagonal 3x3", lambda: (
         Matrix([
             [2.0, 0.0, 0.0],
             [0.0, 2.0, 0.0],
@@ -28,7 +28,7 @@ def main():
     # [0.0, 0.5, 0.0]
     # [0.0, 0.0, 0.5]
 
-    test("Inverse subject 3x3", lambda: (
+    test("Subject Inverse subject 3x3", lambda: (
         Matrix([
             [8.0, 5.0, -2.0],
             [4.0, 7.0, 20.0],
