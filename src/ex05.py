@@ -37,8 +37,8 @@ def main():
 
     test("Angle cosine subject example 3", lambda: (
         res := angle_cos(Vector([-1.0, 1.0]), Vector([1.0, -1.0])),
-        print(round(res)),
-        print("OK" if round(res) == -1.0 else "KO")
+        print(res),
+        print("OK" if res == -1.0 else "KO")
     ))
 
     test("Angle cosine subject example 4", lambda: (
@@ -49,8 +49,8 @@ def main():
 
     test("Angle cosine arbitrary vectors", lambda: (
         res := angle_cos(Vector([2.0, 1.0]), Vector([4.0, 2.0])),
-        print(round(res)),
-        print("OK" if round(res) == 1.0 else "KO")
+        print(res),
+        print("OK" if res == 1.0 else "KO")
     ))
 
     test("Angle cosine different type", lambda: (
