@@ -176,6 +176,15 @@ def main():
 
     print("\n------- EX10 ------")
 
+    test("Row echelon complex 3x3", lambda: (
+        Matrix([
+            [Complex(1, 1), Complex(2, 0), Complex(3, -1)],
+            [Complex(2, 2), Complex(4, 0), Complex(6, -2)],
+            [Complex(1, 0), Complex(0, 1), Complex(1, 1)]
+        ]).row_echelon().print()
+    ))
+
+
     # test("Determinant complex", lambda: print(
     #     Matrix([
     #         [Complex(1, 0), Complex(2, 0)],

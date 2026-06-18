@@ -108,7 +108,7 @@ class Matrix(Generic[K]):
                 res[c][r] = self.data[r][c]
         return Matrix(res)
 
-    def is_zero(x):
+    def is_zero(self, x):
         return abs(x) == 0
 
     # ex10
