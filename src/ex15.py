@@ -184,14 +184,14 @@ def main():
         ]).row_echelon().print()
     ))
 
+    print("\n------- EX11 ------")
 
-    # test("Determinant complex", lambda: print(
-    #     Matrix([
-    #         [Complex(1, 0), Complex(2, 0)],
-    #         [Complex(3, 0), Complex(4, 0)]
-    #     ]).determinant()
-    # ))
-
+    test("Determinant complex", lambda: print(
+        Matrix([
+            [Complex(1, 0), Complex(2, 0)],
+            [Complex(3, 0), Complex(4, 0)]
+        ]).determinant()
+    ))
 
     # # inverse
     # test("Inverse complex", lambda: (
