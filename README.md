@@ -31,7 +31,24 @@ This library covers the following linear algebra concepts:
 
 ## Instructions
 
-*To be completed.*
+Run an exercise with:
+
+```sh
+make ex00
+make ex01
+make ex02
+...
+```
+
+The Makefile automatically creates a Python virtual environment and executes the corresponding file from the `src/` directory.
+
+Clean the project with:
+
+```sh
+make fclean
+```
+
+This removes the virtual environment and the generated projection executable.
 
 ---
 
@@ -44,6 +61,7 @@ This library covers the following linear algebra concepts:
 ### Articles & Tutorials
 
 * [Essence of linear algebra videos](https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&si=QObTapusZy4DIU-C)
+* [Matrices by GeeksforGeeks](https://www.geeksforgeeks.org/maths/matrices/)
 
 ### AI Usage
 
