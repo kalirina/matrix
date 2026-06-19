@@ -62,6 +62,7 @@ This removes the virtual environment and the generated projection executable.
 
 * [Essence of linear algebra videos](https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&si=QObTapusZy4DIU-C)
 * [Matrices by GeeksforGeeks](https://www.geeksforgeeks.org/maths/matrices/)
+* [Matrix calculator](https://matrix.reshish.com/matrix-multiplication/)
 
 ### AI Usage
 
